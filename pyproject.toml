@@ -1,0 +1,82 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "memu-sdk"
+version = "1.0.0"
+description = "Official Python SDK for the MemU Cloud API - Manage structured, long-term memory for AI agents"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "MemU Team", email = "support@memu.so" },
+]
+keywords = [
+    "memu",
+    "ai",
+    "memory",
+    "agent",
+    "sdk",
+    "api",
+    "llm",
+    "artificial-intelligence",
+    "machine-learning",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Typing :: Typed",
+]
+dependencies = [
+    "httpx>=0.24.0",
+    "pydantic>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0.0",
+    "mypy>=1.0.0",
+    "ruff>=0.1.0",
+]
+
+[project.urls]
+Homepage = "https://memu.so"
+Documentation = "https://memu.pro/docs"
+Repository = "https://github.com/NevaMind-AI/memU-sdk-py"
+Issues = "https://github.com/NevaMind-AI/memU-sdk-py/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/memu_sdk"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+strict = true
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "D", "UP", "B", "C90", "TRY"]
+ignore = ["D100", "D104", "D107", "TRY003"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
