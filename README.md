@@ -17,11 +17,7 @@ Official Python SDK for the [MemU Cloud API](https://api.memu.so) - Manage struc
 
 ## Installation
 
-```bash
-pip install memu-sdk
-```
-
-Or install from source:
+Install from source:
 
 ```bash
 git clone https://github.com/NevaMind-AI/memU-sdk-py.git
